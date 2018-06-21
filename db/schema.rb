@@ -10,6 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2018_06_21_083312) do
+
+  create_table "settings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.boolean "bcc_conversion", default: false, null: false
+    t.string "bcc_dummy_to", default: "", null: false
+    t.boolean "attachments_encryption", default: false, null: false
+    t.integer "attachments_encryption_password_length", default: 8, null: false
+    t.string "attachments_encryption_subtitle", default: "", null: false
+    t.text "attachments_encryption_additional_text", null: false
+    t.integer "attachments_encryption_encoding", default: 1, null: false
+    t.boolean "attachments_encryption_password_notification", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
