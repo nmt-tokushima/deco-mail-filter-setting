@@ -22,3 +22,17 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## MySQL setup NOTE
+
+```sh
+sudo docker run -d --restart=always -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -p 13306:3306 mysql:5.7.22
+```
+
+## Rails server start
+
+export DB_HOST=127.0.0.1
+export DB_PORT=13306
+bin/rails db:setup
+bin/rails s
+```
