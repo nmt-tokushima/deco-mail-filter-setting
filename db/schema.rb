@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_25_052711) do
+ActiveRecord::Schema.define(version: 2018_06_25_054008) do
+
+  create_table "attachments_encryption_disable_domain_froms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "setting_id", null: false
+    t.string "domain", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["setting_id"], name: "index_attachments_encryption_disable_domain_froms_on_setting_id"
+  end
+
+  create_table "attachments_encryption_disable_domain_tos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "setting_id", null: false
+    t.string "domain", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["setting_id"], name: "index_attachments_encryption_disable_domain_tos_on_setting_id"
+  end
+
+  create_table "attachments_encryption_disable_emails", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "setting_id", null: false
+    t.string "email", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["setting_id"], name: "index_attachments_encryption_disable_emails_on_setting_id"
+  end
 
   create_table "bcc_conversion_disable_domains", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "setting_id", null: false
@@ -33,5 +57,8 @@ ActiveRecord::Schema.define(version: 2018_06_25_052711) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "attachments_encryption_disable_domain_froms", "settings"
+  add_foreign_key "attachments_encryption_disable_domain_tos", "settings"
+  add_foreign_key "attachments_encryption_disable_emails", "settings"
   add_foreign_key "bcc_conversion_disable_domains", "settings"
 end
