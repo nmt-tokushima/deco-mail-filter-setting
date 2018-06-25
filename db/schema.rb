@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_21_083312) do
+ActiveRecord::Schema.define(version: 2018_06_25_052711) do
+
+  create_table "bcc_conversion_disable_domains", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "setting_id", null: false
+    t.string "domain", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["setting_id"], name: "index_bcc_conversion_disable_domains_on_setting_id"
+  end
 
   create_table "settings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.boolean "bcc_conversion", default: false, null: false
@@ -25,4 +33,5 @@ ActiveRecord::Schema.define(version: 2018_06_21_083312) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "bcc_conversion_disable_domains", "settings"
 end
