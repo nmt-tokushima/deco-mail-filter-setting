@@ -1,2 +1,57 @@
-<h1>Settings#index</h1>
-<p>Find me in app/views/settings/index.html.erb</p>
+<%= form_with(model: @setting, url: settings_path, method: :post, local: true) do |form| %>
+  <% if @setting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@setting.errors.count, "error") %> prohibited this setting from being saved:</h2>
+
+      <ul>
+      <% @setting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :bcc_conversion %>
+    <%= form.check_box :bcc_conversion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bcc_dummy_to %>
+    <%= form.text_field :bcc_dummy_to %>
+  </div>
+
+  <div class="field">
+    <%= form.label :attachments_encryption %>
+    <%= form.check_box :attachments_encryption %>
+  </div>
+
+  <div class="field">
+    <%= form.label :attachments_encryption_password_length %>
+    <%= form.number_field :attachments_encryption_password_length %>
+  </div>
+
+  <div class="field">
+    <%= form.label :attachments_encryption_subtitle %>
+    <%= form.text_field :attachments_encryption_subtitle %>
+  </div>
+
+  <div class="field">
+    <%= form.label :attachments_encryption_additional_text %>
+    <%= form.text_area :attachments_encryption_additional_text %>
+  </div>
+
+  <div class="field">
+    <%= form.label :attachments_encryption_encoding %>
+    <%= form.number_field :attachments_encryption_encoding %>
+  </div>
+
+  <div class="field">
+    <%= form.label :attachments_encryption_password_notification %>
+    <%= form.check_box :attachments_encryption_password_notification %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
