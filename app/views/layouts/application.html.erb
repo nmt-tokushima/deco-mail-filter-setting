@@ -10,6 +10,20 @@
   </head>
 
   <body>
+    <header class="navbar">
+      <section class="navbar-section">
+        <h1>DECOメールフィルター設定</h1>
+      </section>
+      <section class="navbar-section">
+        <%= link_to '全体設定', root_path, class: 'btn btn-link' %>
+        <p>BCC変換無効</p>
+        <%= link_to 'ドメイン', bcc_conversion_disable_domains_path, class: 'btn btn-link' %>
+        <p>添付ファイル暗号化無効化設定</p>
+        <%= link_to 'アドレス', attachments_encryption_disable_emails_path, class: 'btn btn-link' %>
+        <%= link_to '送信先ドメイン', attachments_encryption_disable_domain_tos_path, class: 'btn btn-link' %>
+        <%= link_to '送信元ドメイン', attachments_encryption_disable_domain_froms_path, class: 'btn btn-link' %>
+      </section>
+    </header>
     <%= yield %>
   </body>
 </html>
