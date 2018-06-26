@@ -1,4 +1,4 @@
-<%= form_with(model: @setting, url: settings_path, method: :post, local: true) do |form| %>
+<%= form_with(model: @setting, url: settings_path, method: :post, local: true, class: 'form-horizontal') do |form| %>
   <% if @setting.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@setting.errors.count, "error") %> prohibited this setting from being saved:</h2>
@@ -11,47 +11,89 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :bcc_conversion %>
-    <%= form.check_box :bcc_conversion %>
+  <div class="form-group">
+    <div class="col-3"></div>
+    <div class="col-9">
+      <%= form.label :bcc_conversion, class: 'form-switch' do %>
+        <%= form.check_box :bcc_conversion, class: 'form-check-input' %>
+        <i class="form-icon"></i> BCC conversion
+      <% end %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :bcc_dummy_to %>
-    <%= form.text_field :bcc_dummy_to %>
+  <div class="form-group">
+    <div class="col-3">
+      <%= form.label :bcc_dummy_to, class: 'form-label' %>
+    </div>
+    <div class="col-9">
+      <%= form.text_field :bcc_dummy_to, class: 'form-input', placeholder: 'example.com' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :attachments_encryption %>
-    <%= form.check_box :attachments_encryption %>
+  <div class="form-group">
+    <div class="col-3"></div>
+    <div class="col-9">
+      <%= form.label :attachments_encryption, class: 'form-switch' do %>
+        <%= form.check_box :attachments_encryption %>
+        <i class="form-icon"></i> Attachments encryption
+      <% end %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :attachments_encryption_password_length %>
-    <%= form.number_field :attachments_encryption_password_length %>
+  <div class="form-group">
+    <div class="col-3">
+      <%= form.label :attachments_encryption_password_length %>
+    </div>
+    <div class="col-9">
+      <%= form.number_field :attachments_encryption_password_length, type: 'number' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :attachments_encryption_subtitle %>
-    <%= form.text_field :attachments_encryption_subtitle %>
+  <div class="form-group">
+    <div class="col-3">
+      <%= form.label :attachments_encryption_subtitle %>
+    </div>
+    <div class="col-9">
+      <%= form.text_field :attachments_encryption_subtitle %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :attachments_encryption_additional_text %>
-    <%= form.text_area :attachments_encryption_additional_text %>
+  <div class="form-group">
+    <div class="col-3">
+      <%= form.label :attachments_encryption_additional_text %>
+    </div>
+    <div class="col-9">
+      <%= form.text_area :attachments_encryption_additional_text %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :attachments_encryption_encoding %>
-    <%= form.number_field :attachments_encryption_encoding %>
+  <div class="form-group">
+    <div class="col-3">
+      <%= form.label :attachments_encryption_encoding %>
+    </div>
+    <div class="col-9">
+      <%= form.label :attachments_encryption_encoding_1, class: 'form-radio' do %>
+        <%= form.radio_button :attachments_encryption_encoding, 1 %>
+        <i class="form-icon"></i> Base64
+      <% end %>
+      <%= form.label :attachments_encryption_encoding_2, class: 'form-radio' do %>
+        <%= form.radio_button :attachments_encryption_encoding, 2 %>
+        <i class="form-icon"></i> Quoted-Printable
+      <% end %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :attachments_encryption_password_notification %>
-    <%= form.check_box :attachments_encryption_password_notification %>
+  <div class="form-group">
+    <div class="col-3"></div>
+    <div class="col-9">
+      <%= form.label :attachments_encryption_password_notification, class: 'form-switch' do %>
+        <%= form.check_box :attachments_encryption_password_notification %>
+        <i class="form-icon"></i> Attachments encryption password notification
+      <% end %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
