@@ -1,0 +1,1 @@
+json.array! @attachments_encryption_disable_domain_froms, partial: 'attachments_encryption_disable_domain_froms/attachments_encryption_disable_domain_from', as: :attachments_encryption_disable_domain_from

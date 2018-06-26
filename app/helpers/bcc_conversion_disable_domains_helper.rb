@@ -1,0 +1,2 @@
+module BccConversionDisableDomainsHelper
+end

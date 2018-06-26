@@ -1,0 +1,1 @@
+json.partial! "bcc_conversion_disable_domains/bcc_conversion_disable_domain", bcc_conversion_disable_domain: @bcc_conversion_disable_domain

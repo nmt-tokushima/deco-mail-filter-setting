@@ -1,0 +1,1 @@
+json.partial! "attachments_encryption_disable_emails/attachments_encryption_disable_email", attachments_encryption_disable_email: @attachments_encryption_disable_email

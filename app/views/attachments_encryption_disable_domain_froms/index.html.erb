@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Attachments Encryption Disable Domain Froms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Setting</th>
+      <th>Domain</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @attachments_encryption_disable_domain_froms.each do |attachments_encryption_disable_domain_from| %>
+      <tr>
+        <td><%= attachments_encryption_disable_domain_from.setting %></td>
+        <td><%= attachments_encryption_disable_domain_from.domain %></td>
+        <td><%= link_to 'Show', attachments_encryption_disable_domain_from %></td>
+        <td><%= link_to 'Edit', edit_attachments_encryption_disable_domain_from_path(attachments_encryption_disable_domain_from) %></td>
+        <td><%= link_to 'Destroy', attachments_encryption_disable_domain_from, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Attachments Encryption Disable Domain From', new_attachments_encryption_disable_domain_from_path %>

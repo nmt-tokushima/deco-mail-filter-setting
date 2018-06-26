@@ -1,0 +1,27 @@
+<%= form_with(model: attachments_encryption_disable_domain_from, local: true) do |form| %>
+  <% if attachments_encryption_disable_domain_from.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(attachments_encryption_disable_domain_from.errors.count, "error") %> prohibited this attachments_encryption_disable_domain_from from being saved:</h2>
+
+      <ul>
+      <% attachments_encryption_disable_domain_from.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :setting_id %>
+    <%= form.text_field :setting_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :domain %>
+    <%= form.text_field :domain %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

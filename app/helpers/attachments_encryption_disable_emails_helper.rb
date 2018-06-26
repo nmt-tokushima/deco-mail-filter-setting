@@ -1,0 +1,2 @@
+module AttachmentsEncryptionDisableEmailsHelper
+end
