@@ -39,6 +39,25 @@ nodebrew install-binary v9.11.1
 nodebrew use v9.11.1
 ```
 
+- Yarn
+
+ref. https://yarnpkg.com/en/docs/install
+
+### Ubuntu
+
+```sh
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt-get update && sudo apt-get -y install yarn
+```
+
+### CentOS
+
+```sh
+curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
+sudo yum install -y yarn
+```
+
 ## MySQL setup NOTE
 
 ```sh
@@ -56,9 +75,14 @@ export DB_PORT=13306
 ```
 
 ```sh
+bin/bundle install
+bin/yarn install
+```
+
+```sh
 bin/rails db:setup
 bin/webpack-dev-server
-bin/rails s
+bin/rails s -b 0.0.0.0
 ```
 
 ## Assets precompile for production
