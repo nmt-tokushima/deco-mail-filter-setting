@@ -48,8 +48,14 @@ sudo docker run -d --restart=always -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -p 13306:3
 ## Rails server start
 
 ```sh
+# Copy .env.example to .env and edit it
+# or
+# run following commands
 export DB_HOST=127.0.0.1
 export DB_PORT=13306
+```
+
+```sh
 bin/rails db:setup
 bin/webpack-dev-server
 bin/rails s
