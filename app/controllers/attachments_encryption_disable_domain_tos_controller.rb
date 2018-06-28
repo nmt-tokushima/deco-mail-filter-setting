@@ -4,7 +4,7 @@ class AttachmentsEncryptionDisableDomainTosController < ApplicationController
   # GET /attachments_encryption_disable_domain_tos
   # GET /attachments_encryption_disable_domain_tos.json
   def index
-    @attachments_encryption_disable_domain_tos = AttachmentsEncryptionDisableDomainTo.all
+    @attachments_encryption_disable_domain_tos = Setting.current.attachments_encryption_disable_domain_tos
   end
 
   # GET /attachments_encryption_disable_domain_tos/1
@@ -14,7 +14,7 @@ class AttachmentsEncryptionDisableDomainTosController < ApplicationController
 
   # GET /attachments_encryption_disable_domain_tos/new
   def new
-    @attachments_encryption_disable_domain_to = AttachmentsEncryptionDisableDomainTo.new
+    @attachments_encryption_disable_domain_to = Setting.current.attachments_encryption_disable_domain_tos.build
   end
 
   # GET /attachments_encryption_disable_domain_tos/1/edit
@@ -24,7 +24,7 @@ class AttachmentsEncryptionDisableDomainTosController < ApplicationController
   # POST /attachments_encryption_disable_domain_tos
   # POST /attachments_encryption_disable_domain_tos.json
   def create
-    @attachments_encryption_disable_domain_to = AttachmentsEncryptionDisableDomainTo.new(attachments_encryption_disable_domain_to_params)
+    @attachments_encryption_disable_domain_to = Setting.current.attachments_encryption_disable_domain_tos.build(attachments_encryption_disable_domain_to_params)
 
     respond_to do |format|
       if @attachments_encryption_disable_domain_to.save
@@ -69,6 +69,6 @@ class AttachmentsEncryptionDisableDomainTosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attachments_encryption_disable_domain_to_params
-      params.require(:attachments_encryption_disable_domain_to).permit(:setting_id, :domain)
+      params.require(:attachments_encryption_disable_domain_to).permit(:domain)
     end
 end

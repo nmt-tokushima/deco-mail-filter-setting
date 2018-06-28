@@ -4,7 +4,7 @@ class AttachmentsEncryptionDisableEmailsController < ApplicationController
   # GET /attachments_encryption_disable_emails
   # GET /attachments_encryption_disable_emails.json
   def index
-    @attachments_encryption_disable_emails = AttachmentsEncryptionDisableEmail.all
+    @attachments_encryption_disable_emails = Setting.current.attachments_encryption_disable_emails
   end
 
   # GET /attachments_encryption_disable_emails/1
@@ -14,7 +14,7 @@ class AttachmentsEncryptionDisableEmailsController < ApplicationController
 
   # GET /attachments_encryption_disable_emails/new
   def new
-    @attachments_encryption_disable_email = AttachmentsEncryptionDisableEmail.new
+    @attachments_encryption_disable_email = Setting.current.attachments_encryption_disable_emails.build
   end
 
   # GET /attachments_encryption_disable_emails/1/edit
@@ -24,7 +24,7 @@ class AttachmentsEncryptionDisableEmailsController < ApplicationController
   # POST /attachments_encryption_disable_emails
   # POST /attachments_encryption_disable_emails.json
   def create
-    @attachments_encryption_disable_email = AttachmentsEncryptionDisableEmail.new(attachments_encryption_disable_email_params)
+    @attachments_encryption_disable_email = Setting.current.attachments_encryption_disable_emails.build(attachments_encryption_disable_email_params)
 
     respond_to do |format|
       if @attachments_encryption_disable_email.save
@@ -69,6 +69,6 @@ class AttachmentsEncryptionDisableEmailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attachments_encryption_disable_email_params
-      params.require(:attachments_encryption_disable_email).permit(:setting_id, :email)
+      params.require(:attachments_encryption_disable_email).permit(:email)
     end
 end

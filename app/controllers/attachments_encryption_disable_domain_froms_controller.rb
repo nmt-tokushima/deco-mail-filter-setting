@@ -4,7 +4,7 @@ class AttachmentsEncryptionDisableDomainFromsController < ApplicationController
   # GET /attachments_encryption_disable_domain_froms
   # GET /attachments_encryption_disable_domain_froms.json
   def index
-    @attachments_encryption_disable_domain_froms = AttachmentsEncryptionDisableDomainFrom.all
+    @attachments_encryption_disable_domain_froms = Setting.current.attachments_encryption_disable_domain_froms
   end
 
   # GET /attachments_encryption_disable_domain_froms/1
@@ -14,7 +14,7 @@ class AttachmentsEncryptionDisableDomainFromsController < ApplicationController
 
   # GET /attachments_encryption_disable_domain_froms/new
   def new
-    @attachments_encryption_disable_domain_from = AttachmentsEncryptionDisableDomainFrom.new
+    @attachments_encryption_disable_domain_from = Setting.current.attachments_encryption_disable_domain_froms.build
   end
 
   # GET /attachments_encryption_disable_domain_froms/1/edit
@@ -24,7 +24,7 @@ class AttachmentsEncryptionDisableDomainFromsController < ApplicationController
   # POST /attachments_encryption_disable_domain_froms
   # POST /attachments_encryption_disable_domain_froms.json
   def create
-    @attachments_encryption_disable_domain_from = AttachmentsEncryptionDisableDomainFrom.new(attachments_encryption_disable_domain_from_params)
+    @attachments_encryption_disable_domain_from = Setting.current.attachments_encryption_disable_domain_froms.build(attachments_encryption_disable_domain_from_params)
 
     respond_to do |format|
       if @attachments_encryption_disable_domain_from.save
@@ -69,6 +69,6 @@ class AttachmentsEncryptionDisableDomainFromsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attachments_encryption_disable_domain_from_params
-      params.require(:attachments_encryption_disable_domain_from).permit(:setting_id, :domain)
+      params.require(:attachments_encryption_disable_domain_from).permit(:domain)
     end
 end

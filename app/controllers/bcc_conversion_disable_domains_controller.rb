@@ -4,7 +4,7 @@ class BccConversionDisableDomainsController < ApplicationController
   # GET /bcc_conversion_disable_domains
   # GET /bcc_conversion_disable_domains.json
   def index
-    @bcc_conversion_disable_domains = BccConversionDisableDomain.all
+    @bcc_conversion_disable_domains = Setting.current.bcc_conversion_disable_domains
   end
 
   # GET /bcc_conversion_disable_domains/1
@@ -14,7 +14,7 @@ class BccConversionDisableDomainsController < ApplicationController
 
   # GET /bcc_conversion_disable_domains/new
   def new
-    @bcc_conversion_disable_domain = BccConversionDisableDomain.new
+    @bcc_conversion_disable_domain = Setting.current.bcc_conversion_disable_domains.build
   end
 
   # GET /bcc_conversion_disable_domains/1/edit
@@ -24,7 +24,7 @@ class BccConversionDisableDomainsController < ApplicationController
   # POST /bcc_conversion_disable_domains
   # POST /bcc_conversion_disable_domains.json
   def create
-    @bcc_conversion_disable_domain = BccConversionDisableDomain.new(bcc_conversion_disable_domain_params)
+    @bcc_conversion_disable_domain = Setting.current.bcc_conversion_disable_domains.build(bcc_conversion_disable_domain_params)
 
     respond_to do |format|
       if @bcc_conversion_disable_domain.save
