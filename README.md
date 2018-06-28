@@ -76,6 +76,9 @@ export DB_PORT=13306
 
 ```sh
 bin/bundle install
+# or
+bin/bundle install --path vendor/bundle
+
 bin/yarn install
 ```
 
