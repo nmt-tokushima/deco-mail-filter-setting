@@ -23,6 +23,22 @@ Things you may want to cover:
 
 * ...
 
+## Setup examples
+
+- Ruby
+
+```sh
+rbenv install 2.5.1
+rbenv local 2.5.1
+```
+
+- Node.js
+
+```sh
+nodebrew install-binary v9.11.1
+nodebrew use v9.11.1
+```
+
 ## MySQL setup NOTE
 
 ```sh
@@ -38,3 +54,11 @@ bin/rails db:setup
 bin/webpack-dev-server
 bin/rails s
 ```
+
+## Assets precompile for production
+
+```sh
+bin/rails assets:precompile
+```
+
+JS, CSS and some other files are created in `public/packs`.
