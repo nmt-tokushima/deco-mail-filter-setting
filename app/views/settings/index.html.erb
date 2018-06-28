@@ -42,28 +42,28 @@
 
   <div class="form-group">
     <div class="col-3">
-      <%= form.label :attachments_encryption_password_length %>
+      <%= form.label :attachments_encryption_password_length, class: 'form-label' %>
     </div>
     <div class="col-9">
-      <%= form.number_field :attachments_encryption_password_length, type: 'number' %>
+      <%= form.number_field :attachments_encryption_password_length, type: 'number', class: 'form-input' %>
     </div>
   </div>
 
   <div class="form-group">
     <div class="col-3">
-      <%= form.label :attachments_encryption_subtitle %>
+      <%= form.label :attachments_encryption_subtitle, class: 'form-label' %>
     </div>
     <div class="col-9">
-      <%= form.text_field :attachments_encryption_subtitle %>
+      <%= form.text_field :attachments_encryption_subtitle, class: 'form-input' %>
     </div>
   </div>
 
   <div class="form-group">
     <div class="col-3">
-      <%= form.label :attachments_encryption_additional_text %>
+      <%= form.label :attachments_encryption_additional_text, class: 'form-label' %>
     </div>
     <div class="col-9">
-      <%= form.text_area :attachments_encryption_additional_text %>
+      <%= form.text_area :attachments_encryption_additional_text, class: 'form-input' %>
     </div>
   </div>
 
