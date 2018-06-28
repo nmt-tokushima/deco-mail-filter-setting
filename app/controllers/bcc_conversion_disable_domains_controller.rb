@@ -28,7 +28,7 @@ class BccConversionDisableDomainsController < ApplicationController
 
     respond_to do |format|
       if @bcc_conversion_disable_domain.save
-        format.html { redirect_to @bcc_conversion_disable_domain, notice: 'Bcc conversion disable domain was successfully created.' }
+        format.html { redirect_to bcc_conversion_disable_domains_url, notice: 'Bcc conversion disable domain was successfully created.' }
         format.json { render :show, status: :created, location: @bcc_conversion_disable_domain }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class BccConversionDisableDomainsController < ApplicationController
   def update
     respond_to do |format|
       if @bcc_conversion_disable_domain.update(bcc_conversion_disable_domain_params)
-        format.html { redirect_to @bcc_conversion_disable_domain, notice: 'Bcc conversion disable domain was successfully updated.' }
+        format.html { redirect_to bcc_conversion_disable_domains_url, notice: 'Bcc conversion disable domain was successfully updated.' }
         format.json { render :show, status: :ok, location: @bcc_conversion_disable_domain }
       else
         format.html { render :edit }

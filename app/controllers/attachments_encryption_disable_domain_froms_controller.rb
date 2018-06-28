@@ -7,11 +7,6 @@ class AttachmentsEncryptionDisableDomainFromsController < ApplicationController
     @attachments_encryption_disable_domain_froms = Setting.current.attachments_encryption_disable_domain_froms
   end
 
-  # GET /attachments_encryption_disable_domain_froms/1
-  # GET /attachments_encryption_disable_domain_froms/1.json
-  def show
-  end
-
   # GET /attachments_encryption_disable_domain_froms/new
   def new
     @attachments_encryption_disable_domain_from = Setting.current.attachments_encryption_disable_domain_froms.build
@@ -28,7 +23,7 @@ class AttachmentsEncryptionDisableDomainFromsController < ApplicationController
 
     respond_to do |format|
       if @attachments_encryption_disable_domain_from.save
-        format.html { redirect_to @attachments_encryption_disable_domain_from, notice: 'Attachments encryption disable domain from was successfully created.' }
+        format.html { redirect_to attachments_encryption_disable_domain_froms_url, notice: 'Attachments encryption disable domain from was successfully created.' }
         format.json { render :show, status: :created, location: @attachments_encryption_disable_domain_from }
       else
         format.html { render :new }
@@ -42,7 +37,7 @@ class AttachmentsEncryptionDisableDomainFromsController < ApplicationController
   def update
     respond_to do |format|
       if @attachments_encryption_disable_domain_from.update(attachments_encryption_disable_domain_from_params)
-        format.html { redirect_to @attachments_encryption_disable_domain_from, notice: 'Attachments encryption disable domain from was successfully updated.' }
+        format.html { redirect_to attachments_encryption_disable_domain_froms_url, notice: 'Attachments encryption disable domain from was successfully updated.' }
         format.json { render :show, status: :ok, location: @attachments_encryption_disable_domain_from }
       else
         format.html { render :edit }

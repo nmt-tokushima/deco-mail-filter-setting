@@ -1,1 +1,0 @@
-json.partial! "attachments_encryption_disable_domain_froms/attachments_encryption_disable_domain_from", attachments_encryption_disable_domain_from: @attachments_encryption_disable_domain_from

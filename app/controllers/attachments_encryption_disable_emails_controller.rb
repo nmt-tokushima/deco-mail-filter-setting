@@ -7,11 +7,6 @@ class AttachmentsEncryptionDisableEmailsController < ApplicationController
     @attachments_encryption_disable_emails = Setting.current.attachments_encryption_disable_emails
   end
 
-  # GET /attachments_encryption_disable_emails/1
-  # GET /attachments_encryption_disable_emails/1.json
-  def show
-  end
-
   # GET /attachments_encryption_disable_emails/new
   def new
     @attachments_encryption_disable_email = Setting.current.attachments_encryption_disable_emails.build
@@ -28,7 +23,7 @@ class AttachmentsEncryptionDisableEmailsController < ApplicationController
 
     respond_to do |format|
       if @attachments_encryption_disable_email.save
-        format.html { redirect_to @attachments_encryption_disable_email, notice: 'Attachments encryption disable email was successfully created.' }
+        format.html { redirect_to attachments_encryption_disable_emails_url, notice: 'Attachments encryption disable email was successfully created.' }
         format.json { render :show, status: :created, location: @attachments_encryption_disable_email }
       else
         format.html { render :new }
@@ -42,7 +37,7 @@ class AttachmentsEncryptionDisableEmailsController < ApplicationController
   def update
     respond_to do |format|
       if @attachments_encryption_disable_email.update(attachments_encryption_disable_email_params)
-        format.html { redirect_to @attachments_encryption_disable_email, notice: 'Attachments encryption disable email was successfully updated.' }
+        format.html { redirect_to attachments_encryption_disable_emails_url, notice: 'Attachments encryption disable email was successfully updated.' }
         format.json { render :show, status: :ok, location: @attachments_encryption_disable_email }
       else
         format.html { render :edit }
