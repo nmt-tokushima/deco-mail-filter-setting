@@ -1,6 +1,6 @@
 <h1>Attachments Encryption Disable Domain Froms</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Domain</th>
@@ -12,9 +12,9 @@
     <% @attachments_encryption_disable_domain_froms.each do |attachments_encryption_disable_domain_from| %>
       <tr>
         <td><%= attachments_encryption_disable_domain_from.domain %></td>
-        <td><%= link_to 'Show', attachments_encryption_disable_domain_from %></td>
-        <td><%= link_to 'Edit', edit_attachments_encryption_disable_domain_from_path(attachments_encryption_disable_domain_from) %></td>
-        <td><%= link_to 'Destroy', attachments_encryption_disable_domain_from, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', attachments_encryption_disable_domain_from, class: 'btn' %></td>
+        <td><%= link_to 'Edit', edit_attachments_encryption_disable_domain_from_path(attachments_encryption_disable_domain_from), class: 'btn' %></td>
+        <td><%= link_to 'Destroy', attachments_encryption_disable_domain_from, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-error' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Attachments Encryption Disable Domain From', new_attachments_encryption_disable_domain_from_path %>
+<%= link_to 'New Attachments Encryption Disable Domain From', new_attachments_encryption_disable_domain_from_path, class: 'btn' %>

@@ -1,4 +1,4 @@
-<%= form_with(model: attachments_encryption_disable_domain_from, local: true) do |form| %>
+<%= form_with(model: attachments_encryption_disable_domain_from, local: true, class: 'form-horizontal') do |form| %>
   <% if attachments_encryption_disable_domain_from.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(attachments_encryption_disable_domain_from.errors.count, "error") %> prohibited this attachments_encryption_disable_domain_from from being saved:</h2>
@@ -11,12 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :domain %>
-    <%= form.text_field :domain %>
+  <div class="field form-group">
+    <div class="col-3">
+      <%= form.label :domain, class: 'form-label' %>
+    </div>
+    <div class="col-9">
+      <%= form.text_field :domain, class: 'form-input' %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

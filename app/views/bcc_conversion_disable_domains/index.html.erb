@@ -1,6 +1,6 @@
 <h1>Bcc Conversion Disable Domains</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Domain</th>
@@ -12,9 +12,9 @@
     <% @bcc_conversion_disable_domains.each do |bcc_conversion_disable_domain| %>
       <tr>
         <td><%= bcc_conversion_disable_domain.domain %></td>
-        <td><%= link_to 'Show', bcc_conversion_disable_domain %></td>
-        <td><%= link_to 'Edit', edit_bcc_conversion_disable_domain_path(bcc_conversion_disable_domain) %></td>
-        <td><%= link_to 'Destroy', bcc_conversion_disable_domain, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', bcc_conversion_disable_domain, class: 'btn' %></td>
+        <td><%= link_to 'Edit', edit_bcc_conversion_disable_domain_path(bcc_conversion_disable_domain), class: 'btn' %></td>
+        <td><%= link_to 'Destroy', bcc_conversion_disable_domain, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-error' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Bcc Conversion Disable Domain', new_bcc_conversion_disable_domain_path %>
+<%= link_to 'New Bcc Conversion Disable Domain', new_bcc_conversion_disable_domain_path, class: 'btn' %>
