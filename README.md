@@ -25,25 +25,25 @@ Things you may want to cover:
 
 ## Setup examples
 
-- Ruby
+### Ruby
 
 ```sh
 rbenv install 2.5.1
 rbenv local 2.5.1
 ```
 
-- Node.js
+### Node.js
 
 ```sh
 nodebrew install-binary v9.11.1
 nodebrew use v9.11.1
 ```
 
-- Yarn
+### Yarn
 
 ref. https://yarnpkg.com/en/docs/install
 
-### Ubuntu
+#### Ubuntu
 
 ```sh
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
@@ -51,7 +51,7 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 sudo apt-get update && sudo apt-get -y install yarn
 ```
 
-### CentOS
+#### CentOS
 
 ```sh
 curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
