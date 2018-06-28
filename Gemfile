@@ -45,8 +45,9 @@ group :development, :test do
   gem 'pry-rails', '~> 0.3'
   gem 'pry-byebug', '~> 3.6'
 
-  # Added at 2018-06-28 11:34:52 +0900 by ka:
   gem "rspec-rails", "~> 3.7"
+  gem "factory_bot_rails", "~> 4.10"
+  gem "dotenv-rails", "~> 2.5"
 end
 
 group :development do
@@ -61,9 +62,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-# Added at 2018-06-28 11:58:58 +0900 by ka:
-gem "factory_bot_rails", "~> 4.10"
-
-# Added at 2018-06-28 13:31:55 +0900 by ka:
-gem "dotenv-rails", "~> 2.5"
