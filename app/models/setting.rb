@@ -4,6 +4,10 @@ class Setting < ApplicationRecord
   has_many :attachments_encryption_disable_domain_froms, dependent: :destroy
   has_many :attachments_encryption_disable_domain_tos, dependent: :destroy
 
+  def self.current
+    first
+  end
+
   def self.create_dummy
     instance = new attachments_encryption_additional_text: ''
     instance.save!
