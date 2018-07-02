@@ -5,7 +5,11 @@ class Setting < ApplicationRecord
   has_many :attachments_encryption_disable_domain_tos, dependent: :destroy
 
   def self.current
-    first
+    if count == 0
+      create_dummy
+    else
+      first
+    end
   end
 
   def self.create_dummy

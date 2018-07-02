@@ -1,14 +1,10 @@
 class SettingsController < ApplicationController
   def index
-    if Setting.count == 0
-      @setting = Setting.create_dummy
-    else
-      @setting = Setting.first
-    end
+    @setting = Setting.current
   end
 
   def create
-    @setting = Setting.first
+    @setting = Setting.current
     if @setting.update(setting_params)
       redirect_to root_url, notice: '保存しました'
     else
