@@ -3,6 +3,10 @@ class SettingsController < ApplicationController
     @setting = Setting.current
   end
 
+  def index_api_v1
+    @setting = Setting.current
+  end
+
   def create
     @setting = Setting.current
     if @setting.update(setting_params)
