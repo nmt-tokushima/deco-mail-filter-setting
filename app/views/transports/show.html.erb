@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Domain:</strong>
+  <%= @transport.domain %>
+</p>
+
+<p>
+  <strong>Nexthop:</strong>
+  <%= @transport.nexthop %>
+</p>
+
+<p>
+  <strong>Port:</strong>
+  <%= @transport.port %>
+</p>
+
+<%= link_to 'Edit', edit_transport_path(@transport) %> |
+<%= link_to 'Back', transports_path %>

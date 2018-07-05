@@ -1,0 +1,32 @@
+<%= form_with(model: transport, local: true) do |form| %>
+  <% if transport.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(transport.errors.count, "error") %> prohibited this transport from being saved:</h2>
+
+      <ul>
+      <% transport.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :domain %>
+    <%= form.text_field :domain %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nexthop %>
+    <%= form.text_field :nexthop %>
+  </div>
+
+  <div class="field">
+    <%= form.label :port %>
+    <%= form.number_field :port %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
