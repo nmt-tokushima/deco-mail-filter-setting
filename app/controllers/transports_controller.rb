@@ -1,15 +1,10 @@
 class TransportsController < ApplicationController
-  before_action :set_transport, only: [:show, :edit, :update, :destroy]
+  before_action :set_transport, only: [:edit, :update, :destroy]
 
   # GET /transports
   # GET /transports.json
   def index
     @transports = Transport.all
-  end
-
-  # GET /transports/1
-  # GET /transports/1.json
-  def show
   end
 
   # GET /transports/new
@@ -28,7 +23,7 @@ class TransportsController < ApplicationController
 
     respond_to do |format|
       if @transport.save
-        format.html { redirect_to @transport, notice: 'Transport was successfully created.' }
+        format.html { redirect_to transports_url, notice: 'Transport was successfully created.' }
         format.json { render :show, status: :created, location: @transport }
       else
         format.html { render :new }
@@ -42,7 +37,7 @@ class TransportsController < ApplicationController
   def update
     respond_to do |format|
       if @transport.update(transport_params)
-        format.html { redirect_to @transport, notice: 'Transport was successfully updated.' }
+        format.html { redirect_to transports_url, notice: 'Transport was successfully updated.' }
         format.json { render :show, status: :ok, location: @transport }
       else
         format.html { render :edit }

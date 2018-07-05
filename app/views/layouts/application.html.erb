@@ -22,6 +22,8 @@
         <%= link_to 'アドレス', attachments_encryption_disable_emails_path, class: 'btn btn-link' %>
         <%= link_to '送信先ドメイン', attachments_encryption_disable_domain_tos_path, class: 'btn btn-link' %>
         <%= link_to '送信元ドメイン', attachments_encryption_disable_domain_froms_path, class: 'btn btn-link' %>
+        <p>配信先振り分け</p>
+        <%= link_to '設定', transports_path, class: 'btn btn-link' %>
       </section>
     </header>
     <% if notice %>

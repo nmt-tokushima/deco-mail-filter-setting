@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :transports
+  resources :transports, except: [:show]
   resources :attachments_encryption_disable_domain_tos, except: [:show]
   resources :attachments_encryption_disable_domain_froms, except: [:show]
   resources :attachments_encryption_disable_emails, except: [:show]
