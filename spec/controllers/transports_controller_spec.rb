@@ -28,13 +28,9 @@ RSpec.describe TransportsController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Transport. As you add validations to Transport, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  let(:valid_attributes) { { domain: '*', nexthop: '127.0.0.1', port: 25 } }
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:invalid_attributes) { { domain: '', nexthop: '', port: -1 } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -67,7 +63,7 @@ RSpec.describe TransportsController, type: :controller do
 
       it "redirects to the created transport" do
         post :create, params: {transport: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(Transport.last)
+        expect(response).to redirect_to(transports_url)
       end
     end
 
@@ -81,21 +77,21 @@ RSpec.describe TransportsController, type: :controller do
 
   describe "PUT #update" do
     context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
+      let(:new_attributes) { { domain: 'example.com', nexthop: '192.0.2.0', port: 10025 } }
 
       it "updates the requested transport" do
         transport = Transport.create! valid_attributes
         put :update, params: {id: transport.to_param, transport: new_attributes}, session: valid_session
         transport.reload
-        skip("Add assertions for updated state")
+        expect(transport.domain).to eq 'example.com'
+        expect(transport.nexthop).to eq '192.0.2.0'
+        expect(transport.port).to eq 10025
       end
 
       it "redirects to the transport" do
         transport = Transport.create! valid_attributes
         put :update, params: {id: transport.to_param, transport: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(transport)
+        expect(response).to redirect_to(transports_url)
       end
     end
 
