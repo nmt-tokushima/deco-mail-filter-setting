@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_05_073834) do
+ActiveRecord::Schema.define(version: 2018_07_05_082416) do
 
   create_table "attachments_encryption_disable_domain_froms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "setting_id", null: false
@@ -53,6 +53,14 @@ ActiveRecord::Schema.define(version: 2018_07_05_073834) do
     t.text "attachments_encryption_additional_text", null: false
     t.integer "attachments_encryption_encoding", default: 1, null: false
     t.boolean "attachments_encryption_password_notification", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "transports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "domain", null: false
+    t.string "nexthop", null: false
+    t.integer "port", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
