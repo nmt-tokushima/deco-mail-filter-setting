@@ -23,7 +23,7 @@ class SettingsController < ApplicationController
         :bcc_dummy_to,
         :attachments_encryption,
         :attachments_encryption_password_length,
-        :attachments_encryption_subtitle,
+        :attachments_encryption_subject,
         :attachments_encryption_additional_text,
         :attachments_encryption_encoding,
         :attachments_encryption_password_notification
