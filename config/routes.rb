@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :api_access_allowed_ips, except: [:show, :edit, :update]
   resources :transports, except: [:show]
   resources :attachments_encryption_disable_domain_tos, except: [:show]
