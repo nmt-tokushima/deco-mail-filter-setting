@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :api_access_allowed_ips
   resources :transports, except: [:show]
   resources :attachments_encryption_disable_domain_tos, except: [:show]
   resources :attachments_encryption_disable_domain_froms, except: [:show]
