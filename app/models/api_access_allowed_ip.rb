@@ -1,0 +1,2 @@
+class ApiAccessAllowedIp < ApplicationRecord
+end
