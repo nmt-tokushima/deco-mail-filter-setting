@@ -11,24 +11,8 @@ RSpec.describe ApiAccessAllowedIpsController, type: :routing do
       expect(:get => "/api_access_allowed_ips/new").to route_to("api_access_allowed_ips#new")
     end
 
-    it "routes to #show" do
-      expect(:get => "/api_access_allowed_ips/1").to route_to("api_access_allowed_ips#show", :id => "1")
-    end
-
-    it "routes to #edit" do
-      expect(:get => "/api_access_allowed_ips/1/edit").to route_to("api_access_allowed_ips#edit", :id => "1")
-    end
-
     it "routes to #create" do
       expect(:post => "/api_access_allowed_ips").to route_to("api_access_allowed_ips#create")
-    end
-
-    it "routes to #update via PUT" do
-      expect(:put => "/api_access_allowed_ips/1").to route_to("api_access_allowed_ips#update", :id => "1")
-    end
-
-    it "routes to #update via PATCH" do
-      expect(:patch => "/api_access_allowed_ips/1").to route_to("api_access_allowed_ips#update", :id => "1")
     end
 
     it "routes to #destroy" do

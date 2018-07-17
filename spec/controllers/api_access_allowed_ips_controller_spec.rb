@@ -49,25 +49,9 @@ RSpec.describe ApiAccessAllowedIpsController, type: :controller do
     end
   end
 
-  describe "GET #show" do
-    it "returns a success response" do
-      api_access_allowed_ip = ApiAccessAllowedIp.create! valid_attributes
-      get :show, params: {id: api_access_allowed_ip.to_param}, session: valid_session
-      expect(response).to be_success
-    end
-  end
-
   describe "GET #new" do
     it "returns a success response" do
       get :new, params: {}, session: valid_session
-      expect(response).to be_success
-    end
-  end
-
-  describe "GET #edit" do
-    it "returns a success response" do
-      api_access_allowed_ip = ApiAccessAllowedIp.create! valid_attributes
-      get :edit, params: {id: api_access_allowed_ip.to_param}, session: valid_session
       expect(response).to be_success
     end
   end
@@ -89,35 +73,6 @@ RSpec.describe ApiAccessAllowedIpsController, type: :controller do
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do
         post :create, params: {api_access_allowed_ip: invalid_attributes}, session: valid_session
-        expect(response).to be_success
-      end
-    end
-  end
-
-  describe "PUT #update" do
-    context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
-
-      it "updates the requested api_access_allowed_ip" do
-        api_access_allowed_ip = ApiAccessAllowedIp.create! valid_attributes
-        put :update, params: {id: api_access_allowed_ip.to_param, api_access_allowed_ip: new_attributes}, session: valid_session
-        api_access_allowed_ip.reload
-        skip("Add assertions for updated state")
-      end
-
-      it "redirects to the api_access_allowed_ip" do
-        api_access_allowed_ip = ApiAccessAllowedIp.create! valid_attributes
-        put :update, params: {id: api_access_allowed_ip.to_param, api_access_allowed_ip: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(api_access_allowed_ip)
-      end
-    end
-
-    context "with invalid params" do
-      it "returns a success response (i.e. to display the 'edit' template)" do
-        api_access_allowed_ip = ApiAccessAllowedIp.create! valid_attributes
-        put :update, params: {id: api_access_allowed_ip.to_param, api_access_allowed_ip: invalid_attributes}, session: valid_session
         expect(response).to be_success
       end
     end

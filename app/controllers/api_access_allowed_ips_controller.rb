@@ -1,5 +1,5 @@
 class ApiAccessAllowedIpsController < ApplicationController
-  before_action :set_api_access_allowed_ip, only: [:show, :edit, :update, :destroy]
+  before_action :set_api_access_allowed_ip, only: [:destroy]
 
   # GET /api_access_allowed_ips
   # GET /api_access_allowed_ips.json
@@ -7,18 +7,9 @@ class ApiAccessAllowedIpsController < ApplicationController
     @api_access_allowed_ips = ApiAccessAllowedIp.all
   end
 
-  # GET /api_access_allowed_ips/1
-  # GET /api_access_allowed_ips/1.json
-  def show
-  end
-
   # GET /api_access_allowed_ips/new
   def new
     @api_access_allowed_ip = ApiAccessAllowedIp.new
-  end
-
-  # GET /api_access_allowed_ips/1/edit
-  def edit
   end
 
   # POST /api_access_allowed_ips
@@ -28,24 +19,10 @@ class ApiAccessAllowedIpsController < ApplicationController
 
     respond_to do |format|
       if @api_access_allowed_ip.save
-        format.html { redirect_to @api_access_allowed_ip, notice: 'Api access allowed ip was successfully created.' }
+        format.html { redirect_to api_access_allowed_ips_url, notice: 'Api access allowed ip was successfully created.' }
         format.json { render :show, status: :created, location: @api_access_allowed_ip }
       else
         format.html { render :new }
-        format.json { render json: @api_access_allowed_ip.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /api_access_allowed_ips/1
-  # PATCH/PUT /api_access_allowed_ips/1.json
-  def update
-    respond_to do |format|
-      if @api_access_allowed_ip.update(api_access_allowed_ip_params)
-        format.html { redirect_to @api_access_allowed_ip, notice: 'Api access allowed ip was successfully updated.' }
-        format.json { render :show, status: :ok, location: @api_access_allowed_ip }
-      else
-        format.html { render :edit }
         format.json { render json: @api_access_allowed_ip.errors, status: :unprocessable_entity }
       end
     end
