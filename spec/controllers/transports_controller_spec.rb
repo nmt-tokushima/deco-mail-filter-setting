@@ -24,6 +24,9 @@ require 'rails_helper'
 # `rails-controller-testing` gem.
 
 RSpec.describe TransportsController, type: :controller do
+  before do
+    sign_in create :user
+  end
 
   # This should return the minimal set of attributes required to create a valid
   # Transport. As you add validations to Transport, be sure to

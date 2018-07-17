@@ -24,6 +24,9 @@ require 'rails_helper'
 # `rails-controller-testing` gem.
 
 RSpec.describe ApiAccessAllowedIpsController, type: :controller do
+  before do
+    sign_in create :user
+  end
 
   # This should return the minimal set of attributes required to create a valid
   # ApiAccessAllowedIp. As you add validations to ApiAccessAllowedIp, be sure to
