@@ -1,25 +1,27 @@
-<p id="notice"><%= notice %></p>
+<h2>APIアクセス制限</h2>
 
-<h1>Api Access Allowed Ips</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Ip</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @api_access_allowed_ips.each do |api_access_allowed_ip| %>
+<% if ApiAccessAllowedIp.count > 0 %>
+  <p>ホワイトリスト方式です。</p>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= api_access_allowed_ip.ip %></td>
-        <td><%= link_to 'Destroy', api_access_allowed_ip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Ip</th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @api_access_allowed_ips.each do |api_access_allowed_ip| %>
+        <tr>
+          <td><%= api_access_allowed_ip.ip %></td>
+          <td><%= link_to 'Destroy', api_access_allowed_ip, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-error' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>※現在設定がありません。全てのIPアドレスからのAPIへのアクセスを許可しています。</p>
+<% end %>
 
 <br>
 
-<%= link_to 'New Api Access Allowed Ip', new_api_access_allowed_ip_path %>
+<%= link_to 'New', new_api_access_allowed_ip_path, class: 'btn' %>
