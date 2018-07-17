@@ -4,6 +4,11 @@ class SettingsController < ApplicationController
   end
 
   def index_api_v1
+    if ApiAccessAllowedIp.count > 0
+      unless ApiAccessAllowedIp.all.map(&:ip).include? request.remote_ip
+        render status: 403, json: { message: 'Forbidden' }
+      end
+    end
     @setting = Setting.current
   end
 
