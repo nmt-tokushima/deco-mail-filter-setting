@@ -10,34 +10,47 @@
   </head>
 
   <body>
-    <header>
-      <h1>DECOメールフィルター設定</h1>
+    <header class="navbar">
+      <section class="navbar-section">
+        <h1>DECOメールフィルター設定</h1>
+      </section>
+      <section class="navbar-section">
+        <% if user_signed_in? %>
+          <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-error' %>
+        <% end %>
+      </section>
     </header>
     <div class="container">
       <div class="columns">
-        <div class="column col-2 col-lg-12">
-          <ul class="nav">
-            <%= nav_item '全体設定', root_path, class: 'btn btn-link' %>
-            <%= nav_item 'BCC変換無効ドメイン', bcc_conversion_disable_domains_path, class: 'btn btn-link' %>
-            <li class="nav-item"><span class="p-2">添付ファイル暗号化無効化設定</span></li>
-            <li class="nav-item">
-              <ul class="nav">
-                <%= nav_item 'アドレス', attachments_encryption_disable_emails_path, class: 'btn btn-link' %>
-                <%= nav_item '送信先ドメイン', attachments_encryption_disable_domain_tos_path, class: 'btn btn-link' %>
-                <%= nav_item '送信元ドメイン', attachments_encryption_disable_domain_froms_path, class: 'btn btn-link' %>
-              </ul>
-            </li>
-            <%= nav_item '配信先振り分け設定', transports_path, class: 'btn btn-link' %>
-            <%= nav_item 'APIアクセス制限', api_access_allowed_ips_path, class: 'btn btn-link' %>
-          </ul>
-          <hr class="show-lg">
-        </div>
-        <div class="column col-10 col-lg-12">
-          <% if notice %>
-            <div id="notice" class="toast toast-success"><%= notice %></div>
-          <% end %>
-          <%= yield %>
-        </div>
+        <% if user_signed_in? %>
+          <div class="column col-2 col-lg-12">
+            <ul class="nav">
+              <%= nav_item '全体設定', root_path, class: 'btn btn-link' %>
+              <%= nav_item 'BCC変換無効ドメイン', bcc_conversion_disable_domains_path, class: 'btn btn-link' %>
+              <li class="nav-item"><span class="p-2">添付ファイル暗号化無効化設定</span></li>
+              <li class="nav-item">
+                <ul class="nav">
+                  <%= nav_item 'アドレス', attachments_encryption_disable_emails_path, class: 'btn btn-link' %>
+                  <%= nav_item '送信先ドメイン', attachments_encryption_disable_domain_tos_path, class: 'btn btn-link' %>
+                  <%= nav_item '送信元ドメイン', attachments_encryption_disable_domain_froms_path, class: 'btn btn-link' %>
+                </ul>
+              </li>
+              <%= nav_item '配信先振り分け設定', transports_path, class: 'btn btn-link' %>
+              <%= nav_item 'APIアクセス制限', api_access_allowed_ips_path, class: 'btn btn-link' %>
+            </ul>
+            <hr class="show-lg">
+          </div>
+          <div class="column col-10 col-lg-12">
+            <% if notice %>
+              <div id="notice" class="toast toast-success"><%= notice %></div>
+            <% end %>
+            <%= yield %>
+          </div>
+        <% else %>
+          <div class="column col-12">
+            <%= yield %>
+          </div>
+        <% end %>
       </div>
     </div>
   </body>
