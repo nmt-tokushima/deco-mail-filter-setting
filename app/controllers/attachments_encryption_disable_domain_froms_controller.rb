@@ -1,4 +1,5 @@
 class AttachmentsEncryptionDisableDomainFromsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_attachments_encryption_disable_domain_from, only: [:show, :edit, :update, :destroy]
 
   # GET /attachments_encryption_disable_domain_froms

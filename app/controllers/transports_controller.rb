@@ -1,4 +1,5 @@
 class TransportsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_transport, only: [:edit, :update, :destroy]
 
   # GET /transports

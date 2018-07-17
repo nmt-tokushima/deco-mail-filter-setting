@@ -1,4 +1,6 @@
 class SettingsController < ApplicationController
+  before_action :authenticate_user!, except: [:index_api_v1]
+
   def index
     @setting = Setting.current
   end

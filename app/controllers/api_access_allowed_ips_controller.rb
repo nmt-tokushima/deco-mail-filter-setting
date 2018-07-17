@@ -1,4 +1,5 @@
 class ApiAccessAllowedIpsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_api_access_allowed_ip, only: [:destroy]
 
   # GET /api_access_allowed_ips

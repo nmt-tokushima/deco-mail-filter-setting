@@ -1,4 +1,5 @@
 class BccConversionDisableDomainsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_bcc_conversion_disable_domain, only: [:show, :edit, :update, :destroy]
 
   # GET /bcc_conversion_disable_domains

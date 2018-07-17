@@ -1,4 +1,5 @@
 class AttachmentsEncryptionDisableEmailsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_attachments_encryption_disable_email, only: [:show, :edit, :update, :destroy]
 
   # GET /attachments_encryption_disable_emails
